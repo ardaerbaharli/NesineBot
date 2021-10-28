@@ -59,7 +59,7 @@ namespace NesineBot
         private static void Timer_Tick(object sender, System.Timers.ElapsedEventArgs e)
         {
             DB.RemoveExpiredBets();
-
+            driver.Navigate().Refresh();
             Scan();
         }
 
