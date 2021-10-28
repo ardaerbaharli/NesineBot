@@ -73,8 +73,11 @@ namespace NesineBot
                     var matchCode = betLine.FindElement(By.ClassName("matchCode")).Text;
                     if (betsToPlay.Any(x => x.MatchCode == matchCode))
                     {
-                        DB.Add(betsToPlay.Find(x => x.MatchCode == matchCode));
+                        var bet = betsToPlay.Find(x => x.MatchCode == matchCode);
+                        DB.Add(bet);
                         Play(betLine);
+                        Logger.Bets(bet);
+
                     }
                 }
             }
