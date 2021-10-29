@@ -81,9 +81,11 @@ namespace NesineBot
         public static void RemoveExpiredBets()
         {
             var bets = GetBets();
+            var compareDate = DateTime.Now.AddMinutes(100);
+            
             foreach (var bet in bets.ToList())
             {
-                var res = DateTime.Compare(DateTime.Now, bet.Date);
+                var res = DateTime.Compare(compareDate, bet.Date);
                 if (res < 0)
                     Remove(bet);
             }

@@ -36,12 +36,13 @@ namespace NesineBot
             Login();
             Thread.Sleep(2000);
 
-            var timer = new System.Timers.Timer(1000 * 60 * 30); // every 30 min
+            var timer = new System.Timers.Timer(1000 * 60 * 15); // every 15 min
             timer.Elapsed += (sender, e) => Timer_Tick(sender, e);
             timer.Enabled = true;
             timer.Start();
 
             Scan();
+            Console.Read();
         }
 
         private static void Scan()
